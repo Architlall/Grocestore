@@ -12,52 +12,88 @@ class _UserHomeState extends State<UserHome> {
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: Colors.white,
-       body:  Column(
-           children: [
-             Container(
-               height: 270,
-               width: double.infinity,
-               color: fromCssColor('#4ae5dc'),
-              
-               child: Row(
-                 children: [
-                   Column(
-                     children :[ Padding(
-                       padding: const EdgeInsets.fromLTRB(0, 50, 10, 20),
-                       child: CircleAvatar(  
-                         radius: 70,
-                         backgroundImage: AssetImage('assets/kitten.png'),
-                         
-                       ),
-                       
-                     ),
-                     
-                     Padding(
-                       padding: const EdgeInsets.fromLTRB(20, 5, 200, 20),
-                       child: Text('Agent Name',
-                       style: TextStyle(fontSize: 20,
-                       color: Colors.white),),
-                     ),
-                    
-                     ]
-                   ),
-                   
-                    Padding(
-                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                       child: Icon(
-                         Icons.home,
-                         color: Colors.black,
-                         size : 35,
-                         semanticLabel: 'Home',
-                       ),
-                     )
-                 ],
-               ),
+       body: Column(
+         children: [
+           Container(
+             color: fromCssColor('#4ae5dc'),
+             height: 220,
+             child: Row(
                
-             
-             )
-           ],
+               children: [
+                Column(
+                  children: [
+                     Padding(
+                       padding: const EdgeInsets.fromLTRB(30, 30, 0, 0),
+                       child: Container(
+                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                         child: CircleAvatar(  
+                                 radius: 70,
+                                 backgroundImage: AssetImage('assets/kitten.png'),
+                                   
+                                 ),
+                       ),
+                     ),
+                             Divider(color: Colors.black),
+                             Padding(
+                               padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
+                               child: Text('Agent Name',
+                               
+                               style: TextStyle(fontSize: 20,
+                               color: Colors.white),
+                               ),
+                             ),
+                  ],
+                ),
+                SizedBox(width: 80),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 55, 0, 0),
+                  child: Column(
+                    children: [
+                              Icon(
+                                  Icons.home,
+                                  color: Colors.white,
+                                  size : 35,
+                                semanticLabel: 'Home',
+                                ),
+                                Divider(color: Colors.white,
+                                
+                                ),
+                                Icon(  
+                                  Icons.store,
+                                  color: Colors.white,
+                                  size: 35,
+                                )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 68, 0, 0),
+                  child: Column(
+                    children: [
+                      Text('Home',style: TextStyle(
+                               color: Colors.white),),
+                      Divider(color: Colors.white,
+                                
+                                ),
+                                Divider(color: Colors.white,
+                                
+                                ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                        child: Text('Store Orders',style: TextStyle(
+                               color: Colors.white),),
+                      )
+                    ],
+                  ),
+                )
+               ]),
+           ),
+           Container(height: 30),
+           Text('User Orders',textAlign: TextAlign.start),
+           
+         ],
        )
+    
     );
   }
 }

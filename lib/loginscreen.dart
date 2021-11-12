@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'userhome.dart';
 import 'package:from_css_color/from_css_color.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: Text(
                       'Grocestore',                
-                      style: TextStyle(color: Colors.white, fontSize: 60, fontFamily: 'Lobster'),
+                      style: GoogleFonts.lobster(textStyle:TextStyle(color: Colors.white, fontSize: 60, fontFamily: 'Lobster')),
                       
                     ),
                   ),
