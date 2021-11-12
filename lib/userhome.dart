@@ -89,8 +89,20 @@ class _UserHomeState extends State<UserHome> {
                ]),
            ),
            Container(height: 30),
-           Text('User Orders',textAlign: TextAlign.start),
-           
+           Text('User Orders',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
+          Card(
+            color: Colors.grey[300],
+            child: ListTile(
+              title: Text('Order ID       Customer name       Items      Status')
+            )
+          ),
+          ListTile(
+            title: Text('123                             abc                  5           delivered'),
+          ) ,
+          ListTile(
+            tileColor: Colors.grey[300],
+            title: Text('123                             abc                  5           delivered'),
+          ) ,
          ],
        )
     
