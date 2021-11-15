@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'customer.dart';
+import 'store.dart';
 
 class UserHome extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class _UserHomeState extends State<UserHome> {
                     ),
                     Divider(color: Colors.black),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Text(
                         'Agent Name',
                         style: TextStyle(fontSize: 20, color: Colors.white),
@@ -79,9 +80,16 @@ class _UserHomeState extends State<UserHome> {
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        child: Text(
-                          'Store Orders',
-                          style: TextStyle(color: Colors.white),
+                        child: GestureDetector(
+                          child: Text(
+                            'Store Orders',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onTap:(){
+                     Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Store()));
+                     
+              } ,
                         ),
                       )
                     ],
@@ -92,6 +100,7 @@ class _UserHomeState extends State<UserHome> {
             Container(height: 30),
             Text('User Orders',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
+                Divider(),
             Card(
                 color: Colors.grey[300],
                 child: ListTile(

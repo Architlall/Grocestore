@@ -63,7 +63,7 @@ class _CustomerState extends State<Customer> {
                  Container(
              alignment: Alignment.centerLeft,
             child: 
-            Padding(
+           Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
               child: Text(
                 'Delivery Date : 18/05/2021',
@@ -72,7 +72,7 @@ class _CustomerState extends State<Customer> {
                   fontWeight: FontWeight.w500
                   )
                   ),
-            )
+            ) 
                 ),
                  Container(
              alignment: Alignment.centerLeft,
