@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'userhome.dart';
 
+
 class Store extends StatefulWidget {
   
 
@@ -11,6 +12,10 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> {
+  var checkboxValue = false ;
+   var checkboxValue2 = false ;
+    var checkboxValue3 = false ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,15 +88,98 @@ class _StoreState extends State<Store> {
                 alignment: Alignment.centerLeft
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
                   child: Column(
                     children: [
-                      Text('Name :abc'),
-                      Text('pending'),
-                      Text('quantity')
+                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                      SizedBox(height: 7),                
+                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                     SizedBox(height: 7),    
+                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
                     ],
                   ),
+                  
                 ),
+                     new Checkbox(value: checkboxValue,
+          activeColor: Colors.green,
+          onChanged:(bool newValue){
+        setState(() {
+          checkboxValue = newValue;
+        });
+       Text('Remember me');
+          }),
+              
+             ],
+           )
+         ),
+           Container(
+           width: 360,
+           color: Colors.white,
+           height: 120,
+           child: Row(
+             children: [
+               Image.asset('assets/kitten.png',
+                width: 150, 
+                height: 120,
+                alignment: Alignment.centerLeft
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                  child: Column(
+                    children: [
+                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                      SizedBox(height: 7),                
+                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                     SizedBox(height: 7),    
+                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
+                    ],
+                  ),
+                  
+                ),
+                     new Checkbox(value: checkboxValue2,
+          activeColor: Colors.green,
+          onChanged:(bool newValue){
+        setState(() {
+          checkboxValue2 = newValue;
+        });
+       Text('Remember me');
+          }),
+              
+             ],
+           )
+         ),
+           Container(
+           width: 360,
+           color: Colors.grey[200],
+           height: 120,
+           child: Row(
+             children: [
+               Image.asset('assets/kitten.png',
+                width: 150, 
+                height: 120,
+                alignment: Alignment.centerLeft
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                  child: Column(
+                    children: [
+                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                      SizedBox(height: 7),                
+                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                     SizedBox(height: 7),    
+                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
+                    ],
+                  ),
+                  
+                ),
+                     new Checkbox(value: checkboxValue3,
+          activeColor: Colors.green,
+          onChanged:(bool newValue){
+        setState(() {
+          checkboxValue3 = newValue;
+        });
+       Text('Remember me');
+          }),
               
              ],
            )
