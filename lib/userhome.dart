@@ -56,10 +56,16 @@ class _UserHomeState extends State<UserHome> {
                       Divider(
                         color: Colors.white,
                       ),
-                      Icon(
-                        Icons.store,
-                        color: Colors.white,
-                        size: 35,
+                      GestureDetector(
+                        child: Icon(
+                          Icons.store,
+                          color: Colors.white,
+                          size: 35,
+                        ),
+                        onTap: (){
+                            Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Store()));
+                        },
                       )
                     ],
                   ),

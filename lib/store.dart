@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:from_css_color/from_css_color.dart';
+import 'package:grocestore/product.dart';
 import 'userhome.dart';
 
 
@@ -76,67 +77,78 @@ class _StoreState extends State<Store> {
          ) ,
          Divider(),
          SizedBox(height: 30),
-         Container(
-           width: 360,
-           color: Colors.grey[200],
-           height: 120,
-           child: Row(
-             children: [
-               Image.asset('assets/kitten.png',
-                width: 150, 
-                height: 120,
-                alignment: Alignment.centerLeft
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
-                  child: Column(
-                    children: [
-                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
-                      SizedBox(height: 7),                
-                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-                     SizedBox(height: 7),    
-                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
-                    ],
+         GestureDetector(
+           onTap: (){
+              Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Product()));
+           },
+           child: Container(
+             width: 360,
+             color: Colors.grey[200],
+             height: 120,
+             child: Row(
+               children: [
+                 Image.asset('assets/kitten.png',
+                  width: 150, 
+                  height: 120,
+                  alignment: Alignment.centerLeft
                   ),
-                  
-                ),
-                     new Checkbox(value: checkboxValue,
-          activeColor: Colors.green,
-          onChanged:(bool newValue){
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                    child: Column(
+                      children: [
+                        Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                        SizedBox(height: 7),                
+                        Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                       SizedBox(height: 7),    
+                        Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                    
+                  ),
+                       new Checkbox(value: checkboxValue,
+            activeColor: Colors.green,
+            onChanged:(bool newValue){
         setState(() {
-          checkboxValue = newValue;
+            checkboxValue = newValue;
         });
        Text('Remember me');
-          }),
-              
-             ],
-           )
+            }),
+                
+               ],
+             )
+           ),
          ),
-           Container(
-           width: 360,
-           color: Colors.white,
-           height: 120,
-           child: Row(
-             children: [
-               Image.asset('assets/kitten.png',
-                width: 150, 
-                height: 120,
-                alignment: Alignment.centerLeft
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
-                  child: Column(
-                    children: [
-                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
-                      SizedBox(height: 7),                
-                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-                     SizedBox(height: 7),    
-                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
-                    ],
+           GestureDetector(
+             onTap: (){
+                Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Product()));
+             },
+             child: Container(
+             width: 360,
+             color: Colors.white,
+             height: 120,
+             child: Row(
+               children: [
+                 Image.asset('assets/kitten.png',
+                  width: 150, 
+                  height: 120,
+                  alignment: Alignment.centerLeft
                   ),
-                  
-                ),
-                     new Checkbox(value: checkboxValue2,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                    child: Column(
+                      children: [
+                        Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                        SizedBox(height: 7),                
+                        Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                       SizedBox(height: 7),    
+                        Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                    
+                  ),
+                       new Checkbox(value: checkboxValue2,
           activeColor: Colors.green,
           onChanged:(bool newValue){
         setState(() {
@@ -144,35 +156,41 @@ class _StoreState extends State<Store> {
         });
        Text('Remember me');
           }),
-              
-             ],
-           )
+                
+               ],
+             )
          ),
-           Container(
-           width: 360,
-           color: Colors.grey[200],
-           height: 120,
-           child: Row(
-             children: [
-               Image.asset('assets/kitten.png',
-                width: 150, 
-                height: 120,
-                alignment: Alignment.centerLeft
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
-                  child: Column(
-                    children: [
-                      Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
-                      SizedBox(height: 7),                
-                      Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-                     SizedBox(height: 7),    
-                      Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
-                    ],
+           ),
+           GestureDetector(
+             onTap: (){
+                Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Product()));
+             },
+             child: Container(
+             width: 360,
+             color: Colors.grey[200],
+             height: 120,
+             child: Row(
+               children: [
+                 Image.asset('assets/kitten.png',
+                  width: 150, 
+                  height: 120,
+                  alignment: Alignment.centerLeft
                   ),
-                  
-                ),
-                     new Checkbox(value: checkboxValue3,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                    child: Column(
+                      children: [
+                        Text('Name : abc',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),   
+                        SizedBox(height: 7),                
+                        Text('Pending : ',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                       SizedBox(height: 7),    
+                        Text('Quantity : 12 packets',style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                    
+                  ),
+                       new Checkbox(value: checkboxValue3,
           activeColor: Colors.green,
           onChanged:(bool newValue){
         setState(() {
@@ -180,10 +198,11 @@ class _StoreState extends State<Store> {
         });
        Text('Remember me');
           }),
-              
-             ],
+                
+               ],
+             )
+         ),
            )
-         )
         ]
       ),
       
