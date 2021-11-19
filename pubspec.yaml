@@ -27,7 +27,7 @@ dependencies:
   from_css_color: ^2.0.0
   google_fonts:
   font_awesome_flutter: ^9.2.0
-
+  json_annotation: ^3.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -36,6 +36,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^1.11.5
+  json_serializable: ^3.5.1
+  flutter_config: ^1.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
