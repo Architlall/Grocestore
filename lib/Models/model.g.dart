@@ -12,10 +12,14 @@ Model _$ModelFromJson(Map<String, dynamic> json) {
     fields: json['fields'] == null
         ? null
         : FieldsModel.fromJson(json['fields'] as Map<String, dynamic>),
+    cfields: json['cfields'] == null
+        ? null
+        : CfieldsModel.fromJson(json['cfields'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
       'id': instance.id,
       'fields': instance.fields,
+      'cfields': instance.cfields,
     };
