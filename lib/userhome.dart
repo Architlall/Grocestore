@@ -8,6 +8,8 @@ import 'dart:async';
 import 'dart:convert';
 
 class UserHome extends StatefulWidget {
+  final int passedId;
+  const UserHome({Key key, this.passedId}) : super(key: key);
   @override
   _UserHomeState createState() => _UserHomeState();
 }
@@ -40,9 +42,9 @@ class _UserHomeState extends State<UserHome> {
     super.initState();
     getData();
   }
+
   @override
   void dispose() {
-   
     super.dispose();
   }
 
@@ -164,12 +166,14 @@ class _UserHomeState extends State<UserHome> {
                         SizedBox(
                           height: 400,
                           child: ListView.separated(
-                            itemCount: 5,
+                            itemCount: listModel.records.length,
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Customer()));
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (_) => Customer(
+                                        passedId : listModel.records[index].fields.order_id
+                                      )));
                                 },
                                 child: Card(
                                   color: Colors.grey[200],
@@ -203,6 +207,4 @@ class _UserHomeState extends State<UserHome> {
                 ),
         ));
   }
-
-  
 }

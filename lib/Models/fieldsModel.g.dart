@@ -9,6 +9,7 @@ part of 'fieldsModel.dart';
 FieldsModel _$FieldsModelFromJson(Map<String, dynamic> json) {
   return FieldsModel(
     order_id: json['order_id'] as int,
+    user_id: json['user_id'] as int,
     user_name: json['user_name'] as String,
     order_status: json['order_status'] as String,
     delivery_status: json['delivery_status'] as String,
@@ -16,7 +17,7 @@ FieldsModel _$FieldsModelFromJson(Map<String, dynamic> json) {
     quantity_ordered: json['quantity_ordered'],
     user_phone: json['user_phone'],
     user_address: json['user_address'] as String,
-    user_city: json['user_city'],
+    user_city: json['user_city'] as int,
     user_email: json['user_email'] as String,
   );
 }
@@ -24,6 +25,7 @@ FieldsModel _$FieldsModelFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$FieldsModelToJson(FieldsModel instance) =>
     <String, dynamic>{
       'order_id': instance.order_id,
+      'user_id': instance.user_id,
       'user_name': instance.user_name,
       'order_status': instance.order_status,
       'delivery_status': instance.delivery_status,

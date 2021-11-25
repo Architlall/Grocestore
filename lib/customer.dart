@@ -8,7 +8,13 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
+int index1 = 0;
+int len;
+var phone;
+
 class Customer extends StatefulWidget {
+  final int passedId;
+  Customer({Key key, this.passedId}) : super(key: key);
   @override
   _CustomerState createState() => _CustomerState();
 }
@@ -26,12 +32,22 @@ class _CustomerState extends State<Customer> {
         });
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      
+
       if (mounted) {
         setState(() {
+          
+         
           listModel = ListModel.fromJson(data);
-          print(listModel.records[0].fields.user_address);
+          
+          
+          len = listModel.records.length;
+          print(widget.passedId);
+          
+         
           circular = false;
+          assign();
+          print(listModel.records[index1].fields.user_phone);
+         
         });
       }
     } else {
@@ -42,6 +58,16 @@ class _CustomerState extends State<Customer> {
   initState() {
     super.initState();
     CustomerData();
+  }
+
+  void assign() {
+    for (int i = 0; i < len; i++) {
+      if (listModel.records[i].fields.user_id == widget.passedId) {
+        index1 = i;
+        phone = listModel.records[index1].fields.user_phone;
+        print(index1);
+      }
+    }
   }
 
   @override
@@ -103,7 +129,8 @@ class _CustomerState extends State<Customer> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-                child: Text('Name : abc',
+                child: Text(
+                    'Name : ' + listModel.records[index1].fields.user_name,
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.w400)),
               )),
@@ -111,7 +138,7 @@ class _CustomerState extends State<Customer> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-                child: Text('Phone number : 999999999',
+                child: Text('Phone number : ' + phone.toString(),
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.w400)),
               )),
@@ -120,7 +147,7 @@ class _CustomerState extends State<Customer> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
                 child: Text(
-                    'Adress : ndsdddmdwjdjdwjdwjdmdsdSNDSDSNDSNDDDHWDsdnsnnd',
+                    'Adress : ' + listModel.records[index1].fields.user_address,
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.w400)),
               )),
