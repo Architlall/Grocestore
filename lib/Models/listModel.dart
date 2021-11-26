@@ -7,8 +7,7 @@ part 'listModel.g.dart';
 @JsonSerializable()
 class ListModel {
   List<Model> records;
-  List<Model> record;
-  ListModel({this.records, this.record});
+  ListModel({this.records});
   factory ListModel.fromJson(Map<String, dynamic> json) =>
       _$ListModelFromJson(json);
   Map<String, dynamic> toJson() => _$ListModelToJson(this);

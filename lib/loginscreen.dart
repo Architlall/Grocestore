@@ -14,10 +14,10 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       
-        body: CustomPaint(
-            painter: MyPainter(),
-            child: SingleChildScrollView(
+       resizeToAvoidBottomInset: true,
+        body: SafeArea(
+          child: CustomPaint(
+              painter: MyPainter(),
               child: Column(
                   
                   children: [
@@ -30,15 +30,17 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 160,
+                      height: 130,
                     ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.fromLTRB(30, 10, 80, 0),
-                      child: Text(
-                        'Agent ID',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.white,
+                    SingleChildScrollView(
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.fromLTRB(30, 10, 80, 0),
+                        child: Text(
+                          'Agent ID',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -131,8 +133,8 @@ class LoginScreenState extends State<LoginScreen> {
                                 }),
                           )
                         ])
-                  ]),
-            )));
+                  ])),
+        ));
   }
 }
 

@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'model.dart';
+part of 'profieldModel.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Model _$ModelFromJson(Map<String, dynamic> json) {
-  return Model(
+ProfieldModel _$ProfieldModelFromJson(Map<String, dynamic> json) {
+  return ProfieldModel(
     id: json['id'],
-    fields:
-        json['fields'] == null ? null : FieldsModel.fromJson(json['fields']),
+    url: json['url'],
   );
 }
 
-Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
+Map<String, dynamic> _$ProfieldModelToJson(ProfieldModel instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'fields': instance.fields,
+      'url': instance.url,
     };

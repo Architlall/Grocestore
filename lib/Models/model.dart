@@ -1,4 +1,4 @@
-import 'package:grocestore/Models/cfieldsModel.dart';
+import 'package:grocestore/Models/productModel.dart';
 
 import 'fieldsModel.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,11 +7,11 @@ part 'model.g.dart';
 
 @JsonSerializable()
 class Model {
-  int id;
+  var id;
   FieldsModel fields;
-  CfieldsModel cfields;
+ 
 
-  Model({this.id, this.fields, this.cfields});
-  factory Model.fromJson(Map<String, dynamic> json) => _$ModelFromJson(json);
+  Model({this.id, this.fields});
+  factory Model.fromJson(var json) => _$ModelFromJson(json);
   Map<String, dynamic> toJson() => _$ModelToJson(this);
 }

@@ -19,6 +19,11 @@ FieldsModel _$FieldsModelFromJson(Map<String, dynamic> json) {
     user_address: json['user_address'] as String,
     user_city: json['user_city'] as int,
     user_email: json['user_email'] as String,
+    product_id: json['product_id'] as int,
+    product_name: json['product_name'] as String,
+    product_image: (json['product_image'] as List)
+        ?.map((e) => e == null ? null : ProfieldModel.fromJson(e))
+        ?.toList(),
   );
 }
 
@@ -35,4 +40,7 @@ Map<String, dynamic> _$FieldsModelToJson(FieldsModel instance) =>
       'user_address': instance.user_address,
       'user_city': instance.user_city,
       'user_email': instance.user_email,
+      'product_id': instance.product_id,
+      'product_name': instance.product_name,
+      'product_image': instance.product_image,
     };
