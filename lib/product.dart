@@ -122,13 +122,16 @@ class _ProductState extends State<Product> {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(9, 12, 0, 0),
-                    child: Text('Store owner',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 16)),
+                    child: Text('Store owner',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w800, fontSize: 16)),
                   )
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(60, 0, 10, 0),
-                child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi, placerat morbi tortor sed ut pulvinar. Quis tincidunt a a cras tempor, ac.'),
+                child: Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi, placerat morbi tortor sed ut pulvinar. Quis tincidunt a a cras tempor, ac.'),
               ),
               SizedBox(height: 15),
               Row(
@@ -138,15 +141,16 @@ class _ProductState extends State<Product> {
                     height: 50,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(10, 10, 04, 0),
-                      child: TextField(  
-                                  
-                                  style: TextStyle(color: Colors.black),
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20.0)),
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      hintStyle: TextStyle(color: Colors.black , fontWeight: FontWeight.w300)),
+                      child: TextField(
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0)),
+                            fillColor: Colors.white,
+                            filled: true,
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300)),
                       ),
                     ),
                   ),
@@ -156,23 +160,23 @@ class _ProductState extends State<Product> {
                       height: 30,
                       width: 100,
                       child: ElevatedButton(
-                        onPressed: (){},
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                              
-                                                borderRadius:
-                                                    BorderRadius.circular(20))),
-                                        backgroundColor:
-                                            MaterialStateProperty.all(fromCssColor('#4ae5dc')),
-                                      ),
-                                      child: Text(
-                                        'Comment',
-                                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w800
-                                        ),
-                                        
-                                      ),),
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20))),
+                          backgroundColor: MaterialStateProperty.all(
+                              fromCssColor('#4ae5dc')),
+                        ),
+                        child: Text(
+                          'Comment',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
                     ),
                   )
                 ],

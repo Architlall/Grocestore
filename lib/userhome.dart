@@ -11,7 +11,8 @@ class UserHome extends StatefulWidget {
   final int passedId;
   var passedProduct;
   var passedQuant;
-  UserHome({Key key, this.passedId, this.passedProduct, this.passedQuant}) : super(key: key);
+  UserHome({Key key, this.passedId, this.passedProduct, this.passedQuant})
+      : super(key: key);
   @override
   _UserHomeState createState() => _UserHomeState();
 }
@@ -186,8 +187,10 @@ class _UserHomeState extends State<UserHome> {
                                                     .records[index]
                                                     .fields
                                                     .product_ordered,
-                                                passedQuant: listModel.records[index].fields.quantity_ordered   
-                                                    )));
+                                                passedQuant: listModel
+                                                    .records[index]
+                                                    .fields
+                                                    .quantity_ordered)));
                                   },
                                   child: Card(
                                     color: Colors.grey[200],

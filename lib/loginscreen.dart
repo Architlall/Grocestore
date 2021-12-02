@@ -110,166 +110,162 @@ class LoginScreenState extends State<LoginScreen> {
 
   getOtpFormWidget(context) {
     return Container(
-       padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
-                      child: TextField(
-
-                        style: TextStyle(color: Colors.black),
-                        controller: otpController,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                            fillColor: Colors.white,
-                            filled: true,
-                            hintText: 'Enter OTP',
-                            hintStyle: TextStyle(color: Colors.black , fontWeight: FontWeight.w300)),
-                        onChanged: (value) {
-                          setState(() {
-                            _email = value.trim();
-                          });
-                        },
-                      ),
-                      
+      padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
+      child: TextField(
+        style: TextStyle(color: Colors.black),
+        controller: otpController,
+        decoration: InputDecoration(
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+            fillColor: Colors.white,
+            filled: true,
+            hintText: 'Enter OTP',
+            hintStyle:
+                TextStyle(color: Colors.black, fontWeight: FontWeight.w300)),
+        onChanged: (value) {},
+      ),
     );
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
-  String _email = "x", _password = "y";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
+      body: CustomPaint(
+          painter: MyPainter(),
+          child: Column(children: [
+            SizedBox(height: 100),
+            Center(
+              child: Text(
+                'Grocestore',
+                style: GoogleFonts.lobster(
+                    textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60,
+                        fontFamily: 'Lobster')),
+              ),
+            ),
+            SizedBox(
+              height: 130,
+            ),
+            SingleChildScrollView(
+                child: Container(
+                    child: showLoading
+                        ? Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : currentState ==
+                                MobileVerificationState.SHOW_MOBILE_FORM_STATE
+                            ? Container(
+                                //             child: Column(
+                                // children: [
+                                //   Spacer(),
+                                child: Column(
+                                  children: [
+                                    TextField(
+                                      controller: phoneController,
+                                      style: TextStyle(color: Colors.black),
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0)),
+                                          fillColor: Colors.white,
+                                          filled: true,
+                                          hintText: 'Phone Number',
+                                          hintStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w300)),
+                                    ),
+                                    SizedBox(height: 20),
+                                    TextButton(
+                                      onPressed: () async {
+                                        setState(() {
+                                          showLoading = true;
+                                        });
+                                        await _auth.verifyPhoneNumber(
+                                          phoneNumber: phoneController.text,
+                                          verificationCompleted:
+                                              (phoneAuthCredential) async {
+                                            setState(() {
+                                              showLoading = false;
+                                            });
+                                            //signInWithPhoneAuthCredential(phoneAuthCredential);
+                                          },
+                                          verificationFailed:
+                                              (verificationFailed) async {
+                                            setState(() {
+                                              showLoading = false;
+                                            });
+                                            _scaffoldKey.currentState
+                                                .showSnackBar(SnackBar(
+                                                    content: Text(
+                                                        verificationFailed
+                                                            .message)));
+                                          },
+                                          codeSent: (verificationId,
+                                              resendingToken) async {
+                                            setState(() {
+                                              showLoading = false;
+                                              currentState =
+                                                  MobileVerificationState
+                                                      .SHOW_OTP_FORM_STATE;
+                                              this.verificationId =
+                                                  verificationId;
+                                            });
+                                          },
+                                          codeAutoRetrievalTimeout:
+                                              (verificationId) async {},
+                                        );
+                                      },
+                                      child: Text("SEND"),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(
+                                padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
+                                child: Column(
+                                  children: [
+                                    TextField(
+                                      style: TextStyle(color: Colors.black),
+                                      controller: otpController,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0)),
+                                          fillColor: Colors.white,
+                                          filled: true,
+                                          hintText: 'Enter OTP',
+                                          hintStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w300)),
+                                     
+                                    ),
+                                    SizedBox(
+                                      height: 16,
+                                    ),
+                                    TextButton(
+                                      onPressed: () async {
+                                        PhoneAuthCredential
+                                            phoneAuthCredential =
+                                            PhoneAuthProvider.credential(
+                                                verificationId: verificationId,
+                                                smsCode: otpController.text);
 
-      body:  CustomPaint(
-            painter: MyPainter(),
-            child: Column(
-
-                children: [
-                  SizedBox(height: 100),
-                  Center(
-                    child: Text(
-                      'Grocestore',
-                      style: GoogleFonts.lobster(textStyle:TextStyle(color: Colors.white, fontSize: 60, fontFamily: 'Lobster')),
-
-                    ),
-                  ),
-                  SizedBox(
-                    height: 130,
-                  ),
-
-                 SingleChildScrollView(
-                   child: Container(
-                      
-                     child:  showLoading ? 
-                      Center(
-                child: CircularProgressIndicator(),
-              )
-                   
-            : currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE
-                ?    Container(
-      //             child: Column(
-      // children: [
-      //   Spacer(),
-        child: Column(
-          children: [
-            TextField(
-                controller: phoneController,
-
-                   style: TextStyle(color: Colors.black),
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  hintText: 'Phone Number',
-                                  hintStyle: TextStyle(color: Colors.black , fontWeight: FontWeight.w300)),
-                             
-                            ),
-                            SizedBox(height: 20),
-                            TextButton(
-          onPressed: () async {
-            setState(() {
-              showLoading = true;
-            });
-             await _auth.verifyPhoneNumber(
-              phoneNumber: phoneController.text,
-              verificationCompleted: (phoneAuthCredential) async {
-                  setState(() {
-                    showLoading = false;
-                  });
-                  //signInWithPhoneAuthCredential(phoneAuthCredential);
-              },
-              verificationFailed: (verificationFailed) async {
-                  setState(() {
-                    showLoading = false;
-                  });
-                  _scaffoldKey.currentState.showSnackBar(
-                      SnackBar(content: Text(verificationFailed.message)));
-              },
-              codeSent: (verificationId, resendingToken) async {
-                  setState(() {
-                    showLoading = false;
-                    currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
-                    this.verificationId = verificationId;
-                  });
-              },
-              codeAutoRetrievalTimeout: (verificationId) async {},
-            );
-          },
-          child: Text("SEND"),
-          
-        ),
-
-          ],
-        ),
-
-                )
-                : Container(
-       padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
-                      child: Column(
-                        children: [
-                          TextField(
-
-                            style: TextStyle(color: Colors.black),
-                            controller: otpController,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0)),
-                                fillColor: Colors.white,
-                                filled: true,
-                                hintText: 'Enter OTP',
-                                hintStyle: TextStyle(color: Colors.black , fontWeight: FontWeight.w300)),
-                            onChanged: (value) {
-                              setState(() {
-                                _email = value.trim();
-                              });
-                            },
-                          ),
-                           SizedBox(
-          height: 16,
-        ),
-        TextButton(
-          onPressed: () async {
-            PhoneAuthCredential phoneAuthCredential =
-                PhoneAuthProvider.credential(
-                    verificationId: verificationId,
-                    smsCode: otpController.text);
-
-            signInWithPhoneAuthCredential(phoneAuthCredential);
-          },
-          child: Text("VERIFY"),
-          // color: Colors.blue,
-          // textColor: Colors.white,
-        ),
-                        ],
-                      ),
-    )
-                
-                 ))]
-                )),
-      );
-  
-  
+                                        signInWithPhoneAuthCredential(
+                                            phoneAuthCredential);
+                                      },
+                                      child: Text("VERIFY"),
+                                      // color: Colors.blue,
+                                      // textColor: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              )))
+          ])),
+    );
   }
 }
 
